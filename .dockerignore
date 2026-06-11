@@ -1,0 +1,12 @@
+Dockerfile
+.dockerignore
+node_modules
+.next
+.git
+.gitignore
+npm-debug.log
+README.md
+.env*.local
+.vercel
+docker-compose.yml
+nginx.conf
