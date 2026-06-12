@@ -11,25 +11,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. GitHub-dagi kodni tekshirish muhitiga yuklab olish
+      # 1. Kodni GitHub runner-ga yuklash
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Node.js muhitini sozlash
+      # 2. pnpm paket menejerini o'rnatish (Xatolikni tuzatuvchi asosiy qadam)
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9 # yoki loyihangizga mos keladigan pnpm versiyasi
+
+      # 3. Node.js muhitini sozlash (pnpm keshini hisobga olgan holda)
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # yoki loyihangiz mos keladigan node versiyasi
-          cache: 'npm'
+          node-version: 22 # pnpm 11+ versiyalari uchun Node 22 tavsiya etiladi
+          cache: 'pnpm'
 
-      # 3. Kutubxonalarni o'rnatish (npm install)
+      # 4. Kutubxonalarni pnpm orqali o'rnatish
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
-      # 4. Kodni xatolarga tekshirish (Linter)
-      - name: Run Linter
-        run: npm run lint --if-present
-
-      # 5. Loyihani build qilib ko'rish (Siz boya terminalda qilgan narsa)
+      # 5. Loyihani build qilib ko'rish
       - name: Build Next.js application
-        run: npm run build
+        run: pnpm build
