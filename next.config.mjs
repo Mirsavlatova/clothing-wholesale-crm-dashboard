@@ -7,6 +7,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  allowedDevOrigins: ['13.51.252.239'], // Xatolikda ko'rsatilgan IP-manzilni qo'shdim
 }
 
 export default nextConfig
