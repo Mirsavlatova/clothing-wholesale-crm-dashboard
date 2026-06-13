@@ -16,7 +16,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-
           script: |
             cd /var/www/clothing-wholesale-crm-dashboard
 
@@ -25,5 +24,13 @@ jobs:
             npm ci
 
             npm run build
+
+            mkdir -p .next/standalone/.next
+
+            cp -r .next/static .next/standalone/.next/
+
+            if [ -d public ]; then
+              cp -r public .next/standalone/
+            fi
 
             pm2 restart crm-dashboard
