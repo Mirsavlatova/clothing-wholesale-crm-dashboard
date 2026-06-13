@@ -57,7 +57,7 @@ export function Sidebar({ active, onNavigate, open, onClose }) {
             </div>
             <div>
               <p className="text-base font-semibold leading-tight text-white">DISTINCTION</p>
-              <p className="text-xs text-sidebar-foreground/60">CRM v1.0</p>
+              <p className="text-xs text-sidebar-foreground/60">MARJONA hamma fandan 5 oldi</p>
             </div>
           </div>
           <button
