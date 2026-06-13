@@ -56,7 +56,7 @@ export function Sidebar({ active, onNavigate, open, onClose }) {
               <Shirt className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-base font-semibold leading-tight text-white">Ishlayabdi</p>
+              <p className="text-base font-semibold leading-tight text-white">DISTINCTION</p>
               <p className="text-xs text-sidebar-foreground/60">CRM v1.0</p>
             </div>
           </div>
